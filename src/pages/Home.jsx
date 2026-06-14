@@ -216,15 +216,15 @@ function Hero() {
 }
 
 /* ─────────────────────────────────────────────────────────────
-   1.5 · WHY KEKA STORE
+   2 · WHY KEKA STORE
 ───────────────────────────────────────────────────────────── */
 const storeItems = [
-  { icon:"🗺️", title:"Career Roadmaps",        desc:"Step-by-step paths for every stage — from student to senior engineer.",     accent:"#00E5B0" },
-  { icon:"🧭", title:"Role Guidance",          desc:"Clear explanations of what each tech role actually does, day to day.",       accent:"#00c4ff" },
-  { icon:"🧠", title:"Skill Store",            desc:"The exact skills to learn, mapped to your stage and target role.",          accent:"#FFB84D" },
-  { icon:"🏗️", title:"Project Ideas",          desc:"Real portfolio projects that prove your skills to recruiters.",             accent:"#a78bfa" },
-  { icon:"📜", title:"Certification Guidance", desc:"Which certifications matter for your path, and which to skip.",             accent:"#FF5E7E" },
-  { icon:"📈", title:"Growth Paths",           desc:"What comes after this role — and how to get there with intent.",            accent:"#34d399" },
+  { icon:"🗺️", title:"Career Roadmaps",        desc:"Step-by-step paths for every stage — from student to senior engineer.", accent:"#00E5B0" },
+  { icon:"🧭", title:"Role Guidance",          desc:"Clear explanations of what each tech role actually does, day to day.",   accent:"#00c4ff" },
+  { icon:"🧠", title:"Skill Store",            desc:"The exact skills to learn, mapped to your stage and target role.",       accent:"#FFB84D" },
+  { icon:"🏗️", title:"Project Ideas",          desc:"Real portfolio projects that prove your skills to recruiters.",          accent:"#a78bfa" },
+  { icon:"📜", title:"Certification Guidance", desc:"Which certifications matter for your path, and which to skip.",          accent:"#FF5E7E" },
+  { icon:"📈", title:"Growth Paths",           desc:"What comes after this role — and how to get there with intent.",         accent:"#34d399" },
 ];
 
 function WhyKekaStore() {
@@ -234,21 +234,19 @@ function WhyKekaStore() {
       <div className="container">
 
         {/* Heading block */}
-        <div style={{ textAlign:"center", maxWidth:"680px", margin:"0 auto 1rem" }}>
+        <div style={{ textAlign:"center", maxWidth:"700px", margin:"0 auto 1.25rem" }}>
           <span className="s-eyebrow" style={{ justifyContent:"center" }}>The Name Behind The Mission</span>
           <h2 className="s-heading">Why "Keka Store"?</h2>
         </div>
 
-        {/* Main copy */}
+        {/* Main copy — short and clear */}
         <div style={{ maxWidth:"680px", margin:"0 auto 3.5rem", textAlign:"center" }}>
-          <p style={{ color:"#B8B6CC", fontSize:"1.05rem", lineHeight:1.9, marginBottom:"1.25rem" }}>
-            Keka Store is not a shopping store. It's a <span style={{ color:"#F8F7FF", fontWeight:600 }}>career guidance store</span> for
-            students, graduates, developers, career switchers, and future tech leaders. It brings roadmaps, roles, skills,
-            projects, certifications, interview preparation, and growth paths into one clear place.
+          <p style={{ color:"#F8F7FF", fontSize:"1.2rem", lineHeight:1.7, fontWeight:600, marginBottom:"1.1rem" }}>
+            Keka Store is not a shopping store.<br/>It is a storehouse of tech career clarity.
           </p>
-          <p style={{ color:"#6B6882", fontSize:"0.95rem", lineHeight:1.8, fontStyle:"italic" }}>
-            We call it a "store" because everything you need to understand, choose, and grow in a tech career
-            is stored here — with clarity.
+          <p style={{ color:"var(--desc)", fontSize:"1rem", lineHeight:1.85 }}>
+            Roadmaps, role guidance, skills, projects, certifications, interview prep, and growth paths —
+            all stored in one clear place for students, graduates, developers, and career switchers.
           </p>
         </div>
 
@@ -280,7 +278,7 @@ function WhyKekaStore() {
           }}>
             {storeItems.map((item) => (
               <div key={item.title}
-                style={{ padding:"1.625rem", background:"#0C0A1E", position:"relative", overflow:"hidden", transition:"background 0.2s", cursor:"default" }}
+                style={{ padding:"1.75rem 1.625rem", background:"#0C0A1E", position:"relative", overflow:"hidden", transition:"background 0.2s", cursor:"default" }}
                 onMouseEnter={e => { e.currentTarget.style.background="#131128"; e.currentTarget.querySelector(".wi").style.transform="scale(1.15)"; }}
                 onMouseLeave={e => { e.currentTarget.style.background="#0C0A1E"; e.currentTarget.querySelector(".wi").style.transform="scale(1)"; }}
               >
@@ -293,8 +291,8 @@ function WhyKekaStore() {
                   borderRadius:"50%", background:item.accent, boxShadow:`0 0 8px ${item.accent}`, opacity:0.55 }}/>
 
                 <span className="wi" style={{ fontSize:"1.6rem", display:"block", marginBottom:"0.875rem", transition:"transform 0.22s ease" }}>{item.icon}</span>
-                <p className="font-display" style={{ color:"#F8F7FF", fontWeight:700, fontSize:"0.925rem", marginBottom:"0.45rem" }}>{item.title}</p>
-                <p style={{ color:"#3A3850", fontSize:"0.8rem", lineHeight:1.65 }}>{item.desc}</p>
+                <p className="font-display" style={{ color:"#F8F7FF", fontWeight:700, fontSize:"0.95rem", marginBottom:"0.5rem" }}>{item.title}</p>
+                <p style={{ color:"var(--desc)", fontSize:"0.85rem", lineHeight:1.75 }}>{item.desc}</p>
               </div>
             ))}
           </div>
@@ -306,195 +304,42 @@ function WhyKekaStore() {
 }
 
 /* ─────────────────────────────────────────────────────────────
-   2 · FOUNDER STORY
+   3 · FOUNDER NOTE (short — full story lives on /about)
 ───────────────────────────────────────────────────────────── */
-function FounderStory() {
+function FounderNote() {
   return (
     <section className="section" style={{ position:"relative", zIndex:1 }}>
-      <div className="line-t"/>
+      <div className="line-a"/>
       <div className="container">
-        <div className="grid-split-wide">
-
-          {/* Left — heading + accent */}
-          <div>
-            <span className="s-eyebrow s-eyebrow-a">Founder Story</span>
-            <h2 className="s-heading" style={{ marginBottom:"1.25rem" }}>
-              Why I Built<br/>
-              <span className="g-warm">Keka Store</span>
-            </h2>
-            <div style={{ width:"48px", height:"3px", background:"linear-gradient(90deg,#FFB84D,#FF5E7E)", borderRadius:"2px", marginBottom:"1.5rem" }}/>
-            <p className="s-sub">
-              A personal experience. A shared problem.<br/>A platform built out of real frustration.
-            </p>
-          </div>
-
-          {/* Right — story card */}
+        <div style={{
+          maxWidth:"760px", margin:"0 auto",
+          background:"linear-gradient(135deg,rgba(19,17,40,0.9),rgba(26,23,48,0.9))",
+          border:"1px solid rgba(255,255,255,0.08)",
+          borderRadius:"20px", padding:"2.25rem",
+          display:"flex", gap:"1.5rem", alignItems:"flex-start", flexWrap:"wrap",
+        }}>
+          {/* Avatar */}
           <div style={{
-            background:"linear-gradient(135deg,rgba(19,17,40,0.9),rgba(26,23,48,0.9))",
-            border:"1px solid rgba(255,255,255,0.08)",
-            borderRadius:"20px", padding:"2.5rem",
-            position:"relative", overflow:"hidden",
-          }}>
-            {/* Decorative quote mark */}
-            <div style={{ position:"absolute", top:"1.5rem", right:"2rem",
-              fontSize:"6rem", lineHeight:1, color:"rgba(255,184,77,0.06)",
-              fontFamily:"Georgia,serif", fontWeight:700, userSelect:"none" }}>"</div>
+            width:"48px", height:"48px", borderRadius:"50%", flexShrink:0,
+            background:"linear-gradient(135deg,#00E5B0,#00c4ff)",
+            display:"flex", alignItems:"center", justifyContent:"center",
+            fontSize:"1.25rem", fontWeight:700, color:"#070711", fontFamily:"Space Grotesk,sans-serif",
+          }}>K</div>
 
-            <div style={{ position:"relative", zIndex:1 }}>
-              {/* Avatar placeholder */}
-              <div style={{ display:"flex", alignItems:"center", gap:"1rem", marginBottom:"1.75rem" }}>
-                <div style={{
-                  width:"48px", height:"48px", borderRadius:"50%",
-                  background:"linear-gradient(135deg,#00E5B0,#00c4ff)",
-                  display:"flex", alignItems:"center", justifyContent:"center",
-                  fontSize:"1.25rem", fontWeight:700, color:"#070711", fontFamily:"Space Grotesk,sans-serif",
-                  flexShrink:0,
-                }}>K</div>
-                <div>
-                  <p className="font-display" style={{ color:"#F8F7FF", fontWeight:700, fontSize:"0.9rem" }}>Keka Store Founder</p>
-                  <p style={{ color:"#3A3850", fontSize:"0.75rem", marginTop:"2px" }}>Engineer · Educator · Builder</p>
-                </div>
-              </div>
-
-              <p style={{ color:"#B8B6CC", fontSize:"1rem", lineHeight:1.85, marginBottom:"1.25rem" }}>
-                After engineering, I — like thousands of graduates — had no idea what career paths existed in tech.
-                Nobody told me the difference between a frontend developer and a UI designer. Nobody explained
-                what a QA engineer does, or what a tech lead's day actually looks like.
-              </p>
-              <p style={{ color:"#B8B6CC", fontSize:"1rem", lineHeight:1.85, marginBottom:"1.25rem" }}>
-                I spent months figuring out things that should have been explained in a single conversation.
-                I wasted time on wrong paths. I built skills nobody needed at my level.
-              </p>
-              <p style={{ color:"#F8F7FF", fontSize:"1rem", lineHeight:1.85, fontWeight:500 }}>
-                Keka Store is the platform I wish had existed. A clarity engine for your tech career — not
-                a list of tutorials, but a real map from where you are to where you want to be.
-              </p>
-
-              {/* Accent line */}
-              <div style={{ marginTop:"1.75rem", paddingTop:"1.5rem", borderTop:"1px solid rgba(255,255,255,0.06)",
-                display:"flex", gap:"1.5rem", flexWrap:"wrap" }}>
-                {["Frontend","Backend","AI","DevOps","Testing","Cloud","Product","Leadership"].map(tag=>(
-                  <span key={tag} style={{ color:"#3A3850", fontSize:"0.72rem", fontWeight:500 }}>{tag}</span>
-                ))}
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ─────────────────────────────────────────────────────────────
-   3 · CHOOSE YOUR STAGE
-───────────────────────────────────────────────────────────── */
-function StageSection() {
-  return (
-    <section className="section" style={{ position:"relative", zIndex:1 }}>
-      <div className="line-a"/>
-      <div className="container">
-        <div style={{ textAlign:"center", marginBottom:"3.5rem" }}>
-          <span className="s-eyebrow s-eyebrow-a" style={{ justifyContent:"center" }}>Step 1</span>
-          <h2 className="s-heading">Where are you right now?</h2>
-          <p className="s-sub" style={{ maxWidth:"520px", margin:"0.875rem auto 0" }}>
-            Every stage has a different roadmap. Pick yours and we'll show you exactly what to do next.
-          </p>
-        </div>
-
-        <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(240px,1fr))", gap:"1px",
-          background:"rgba(255,255,255,0.05)", borderRadius:"20px", overflow:"hidden", border:"1px solid rgba(255,255,255,0.07)" }}>
-          {stages.map((s) => (
-            <Link key={s.id} to="/roadmaps" style={{ textDecoration:"none" }}>
-              <div
-                style={{ padding:"1.625rem", background:"#0C0A1E", cursor:"pointer",
-                  position:"relative", overflow:"hidden", transition:"background 0.2s" }}
-                onMouseEnter={e => { e.currentTarget.style.background="#131128"; e.currentTarget.querySelector(".si").style.transform="scale(1.15)"; }}
-                onMouseLeave={e => { e.currentTarget.style.background="#0C0A1E"; e.currentTarget.querySelector(".si").style.transform="scale(1)"; }}
-              >
-                {/* Left accent stripe */}
-                <div style={{ position:"absolute", left:0, top:"1.5rem", bottom:"1.5rem", width:"2px",
-                  background:`linear-gradient(to bottom,${s.accent},transparent)`, borderRadius:"0 2px 2px 0" }}/>
-
-                <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:"0.875rem" }}>
-                  <span className="si" style={{ fontSize:"1.5rem", transition:"transform 0.22s ease", display:"block" }}>{s.icon}</span>
-                  <span style={{ fontSize:"0.62rem", fontWeight:700, color:s.accent, letterSpacing:"0.05em",
-                    background:`${s.accent}12`, border:`1px solid ${s.accent}25`, borderRadius:"999px", padding:"0.2rem 0.6rem" }}>{s.tag}</span>
-                </div>
-                <p className="font-display" style={{ color:"#F8F7FF", fontWeight:700, fontSize:"0.9rem", marginBottom:"0.4rem" }}>{s.title}</p>
-                <p style={{ color:"#3A3850", fontSize:"0.78rem", lineHeight:1.65 }}>{s.desc}</p>
-                <p style={{ color:s.accent, fontSize:"0.7rem", fontWeight:700, marginTop:"0.875rem", letterSpacing:"0.04em" }}>
-                  VIEW ROADMAP →
-                </p>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ─────────────────────────────────────────────────────────────
-   4 · CHOOSE YOUR INTEREST
-───────────────────────────────────────────────────────────── */
-function InterestSection() {
-  return (
-    <section className="section" style={{ position:"relative", zIndex:1 }}>
-      <div className="line-t"/>
-      <div className="container">
-        <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-end", flexWrap:"wrap", gap:"1rem", marginBottom:"3rem" }}>
-          <div>
-            <span className="s-eyebrow">Step 2</span>
-            <h2 className="s-heading">What draws you in?</h2>
-            <p className="s-sub" style={{ maxWidth:"460px" }}>
-              Pick what genuinely interests you — not what sounds impressive. Interest drives consistency.
+          {/* Copy */}
+          <div style={{ flex:1, minWidth:"240px" }}>
+            <span className="s-eyebrow s-eyebrow-a" style={{ marginBottom:"0.6rem" }}>Founder Note</span>
+            <h2 className="font-display" style={{ color:"#F8F7FF", fontWeight:700, fontSize:"clamp(1.3rem,2.4vw,1.7rem)", marginBottom:"0.875rem", letterSpacing:"-0.02em" }}>
+              Why I Built Keka Store
+            </h2>
+            <p style={{ color:"var(--t2)", fontSize:"1rem", lineHeight:1.85, marginBottom:"1rem" }}>
+              I faced career confusion after engineering. I did not know which tech path to choose.
+              Keka Store is built so students, graduates, and professionals can get clarity before wasting time.
             </p>
-          </div>
-          <Link to="/career-paths" className="btn btn-outline" style={{ fontSize:"0.875rem" }}>All Career Paths →</Link>
-        </div>
-
-        <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(220px,1fr))", gap:"0.875rem" }}>
-          {interests.map((item) => (
-            <Link key={item.id} to="/career-paths" style={{ textDecoration:"none" }}>
-              <div style={{
-                background:"#0C0A1E", border:"1px solid rgba(255,255,255,0.07)",
-                borderRadius:"16px", padding:"1.5rem", cursor:"pointer",
-                transition:"all 0.22s ease", position:"relative", overflow:"hidden",
-              }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.background="#131128";
-                  e.currentTarget.style.borderColor=`${item.accent}30`;
-                  e.currentTarget.style.transform="translateY(-2px)";
-                  e.currentTarget.style.boxShadow=`0 8px 28px ${item.accent}12`;
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.background="#0C0A1E";
-                  e.currentTarget.style.borderColor="rgba(255,255,255,0.07)";
-                  e.currentTarget.style.transform="none";
-                  e.currentTarget.style.boxShadow="none";
-                }}
-              >
-                {/* Glow dot */}
-                <div style={{ position:"absolute", top:"14px", right:"14px", width:"6px", height:"6px",
-                  borderRadius:"50%", background:item.accent, opacity:0.55, boxShadow:`0 0 8px ${item.accent}` }}/>
-
-                <div style={{ fontSize:"1.75rem", marginBottom:"0.875rem" }}>{item.icon}</div>
-                <p className="font-display" style={{ color:"#F8F7FF", fontWeight:700, fontSize:"1rem", marginBottom:"0.4rem" }}>{item.title}</p>
-                <p style={{ color:"#3A3850", fontSize:"0.78rem", lineHeight:1.6, marginBottom:"0.875rem" }}>{item.desc}</p>
-
-                {/* Suggested path chips */}
-                <div style={{ display:"flex", flexWrap:"wrap", gap:"0.35rem" }}>
-                  {item.paths.map(p=>(
-                    <span key={p} style={{ fontSize:"0.62rem", fontWeight:500, padding:"0.2rem 0.55rem",
-                      borderRadius:"5px", background:`${item.accent}10`, border:`1px solid ${item.accent}22`, color:item.accent }}>
-                      {p}
-                    </span>
-                  ))}
-                </div>
-              </div>
+            <Link to="/about" style={{ color:"#00E5B0", fontWeight:700, fontSize:"0.85rem", textDecoration:"none", letterSpacing:"0.02em" }}>
+              Read the full story →
             </Link>
-          ))}
+          </div>
         </div>
       </div>
     </section>
@@ -502,74 +347,199 @@ function InterestSection() {
 }
 
 /* ─────────────────────────────────────────────────────────────
-   5 · SUGGESTED CAREER PATHS
+   4 · FIND MY PATH — combined 3-step flow
 ───────────────────────────────────────────────────────────── */
-function CareerPathsSection() {
+function StepHeader({ num, accent, title, sub }) {
   return (
-    <section className="section" style={{ position:"relative", zIndex:1, background:"rgba(12,10,30,0.5)" }}>
+    <div style={{ display:"flex", gap:"1.125rem", alignItems:"flex-start", marginBottom:"1.75rem", flexWrap:"wrap" }}>
+      <div style={{
+        width:"42px", height:"42px", borderRadius:"50%", flexShrink:0,
+        background:`${accent}14`, border:`2px solid ${accent}45`,
+        display:"flex", alignItems:"center", justifyContent:"center",
+        fontFamily:"Space Grotesk,sans-serif", fontWeight:700, fontSize:"0.95rem", color:accent,
+      }}>{num}</div>
+      <div style={{ flex:1, minWidth:"220px" }}>
+        <h3 className="font-display" style={{ color:"#F8F7FF", fontWeight:700, fontSize:"1.2rem", marginBottom:"0.4rem", letterSpacing:"-0.01em" }}>
+          {title}
+        </h3>
+        <p style={{ color:"var(--desc)", fontSize:"0.92rem", lineHeight:1.7, maxWidth:"540px" }}>{sub}</p>
+      </div>
+    </div>
+  );
+}
+
+function FindMyPath() {
+  return (
+    <section className="section" style={{ position:"relative", zIndex:1 }}>
       <div className="line-a"/>
       <div className="container">
-        <div style={{ textAlign:"center", marginBottom:"3rem" }}>
-          <span className="s-eyebrow s-eyebrow-a" style={{ justifyContent:"center" }}>Step 3</span>
-          <h2 className="s-heading">Pick your direction</h2>
-          <p className="s-sub" style={{ maxWidth:"500px", margin:"0.875rem auto 0" }}>
-            12 career tracks, each mapped to real job roles and the skills employers actually look for.
+
+        {/* Section heading */}
+        <div style={{ textAlign:"center", marginBottom:"3.5rem" }}>
+          <span className="s-eyebrow s-eyebrow-a" style={{ justifyContent:"center" }}>Get Started</span>
+          <h2 className="s-heading">Find My Path</h2>
+          <p className="s-sub" style={{ maxWidth:"560px", margin:"0.875rem auto 0" }}>
+            Three quick steps to go from "I don't know where to start" to a clear, personalised roadmap.
           </p>
         </div>
 
-        <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(168px,1fr))", gap:"0.75rem" }}>
-          {careerPaths.map((p) => (
-            <Link key={p.id} to="/career-paths" style={{ textDecoration:"none" }}>
-              <div style={{
-                background:"#0C0A1E", border:"1px solid rgba(255,255,255,0.07)",
-                borderRadius:"14px", padding:"1.25rem 1rem", cursor:"pointer",
-                transition:"all 0.22s", position:"relative", overflow:"hidden",
-              }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.borderColor=`${p.accent}35`;
-                  e.currentTarget.style.background="#131128";
-                  e.currentTarget.style.transform="translateY(-2px)";
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.borderColor="rgba(255,255,255,0.07)";
-                  e.currentTarget.style.background="#0C0A1E";
-                  e.currentTarget.style.transform="none";
-                }}
-              >
-                {/* Corner dot */}
-                <div style={{ position:"absolute", top:"10px", right:"10px", width:"5px", height:"5px",
-                  borderRadius:"50%", background:p.accent, boxShadow:`0 0 6px ${p.accent}`, opacity:0.6 }}/>
+        {/* ── Step 1 — Stage ── */}
+        <div style={{ marginBottom:"4rem" }}>
+          <StepHeader num="1" accent="#00E5B0" title="Choose your current stage"
+            sub="Every stage has its own roadmap. Pick where you are today and we'll show you exactly what comes next." />
 
-                <div style={{ fontSize:"1.4rem", marginBottom:"0.7rem" }}>{p.icon}</div>
-                <p className="font-display" style={{ color:"#F8F7FF", fontWeight:700, fontSize:"0.85rem", marginBottom:"0.45rem" }}>{p.title}</p>
-                <p style={{ color:"#3A3850", fontSize:"0.72rem", lineHeight:1.55, marginBottom:"0.75rem" }}>{p.desc}</p>
-                <div style={{ display:"flex", flexWrap:"wrap", gap:"0.3rem" }}>
-                  {p.skills.slice(0,2).map(sk=>(
-                    <span key={sk} style={{ fontSize:"0.6rem", padding:"0.15rem 0.45rem",
-                      borderRadius:"4px", background:`${p.accent}10`, border:`1px solid ${p.accent}22`, color:p.accent }}>
-                      {sk}
-                    </span>
-                  ))}
+          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(260px,1fr))", gap:"1rem" }}>
+            {stages.map((s) => (
+              <Link key={s.id} to="/roadmaps" style={{ textDecoration:"none" }}>
+                <div
+                  style={{
+                    background:"#0C0A1E", border:"1px solid rgba(255,255,255,0.07)",
+                    borderRadius:"16px", padding:"1.75rem", cursor:"pointer",
+                    position:"relative", overflow:"hidden", height:"100%",
+                    transition:"background 0.2s, border-color 0.2s, transform 0.2s",
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.background="#131128";
+                    e.currentTarget.style.borderColor=`${s.accent}30`;
+                    e.currentTarget.style.transform="translateY(-2px)";
+                    e.currentTarget.querySelector(".si").style.transform="scale(1.15)";
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.background="#0C0A1E";
+                    e.currentTarget.style.borderColor="rgba(255,255,255,0.07)";
+                    e.currentTarget.style.transform="none";
+                    e.currentTarget.querySelector(".si").style.transform="scale(1)";
+                  }}
+                >
+                  {/* Left accent stripe */}
+                  <div style={{ position:"absolute", left:0, top:"1.5rem", bottom:"1.5rem", width:"3px",
+                    background:`linear-gradient(to bottom,${s.accent},transparent)`, borderRadius:"0 2px 2px 0" }}/>
+
+                  <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:"1rem" }}>
+                    <span className="si" style={{ fontSize:"1.6rem", transition:"transform 0.22s ease", display:"block" }}>{s.icon}</span>
+                    <span style={{ fontSize:"0.7rem", fontWeight:700, color:s.accent, letterSpacing:"0.05em",
+                      background:`${s.accent}12`, border:`1px solid ${s.accent}25`, borderRadius:"999px", padding:"0.25rem 0.7rem" }}>{s.tag}</span>
+                  </div>
+                  <p className="font-display" style={{ color:"#F8F7FF", fontWeight:700, fontSize:"0.975rem", marginBottom:"0.5rem" }}>{s.title}</p>
+                  <p style={{ color:"var(--desc)", fontSize:"0.83rem", lineHeight:1.75 }}>{s.desc}</p>
+                  <p style={{ color:s.accent, fontSize:"0.72rem", fontWeight:700, marginTop:"1.1rem", letterSpacing:"0.04em" }}>
+                    VIEW ROADMAP →
+                  </p>
                 </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            ))}
+          </div>
         </div>
 
-        <div style={{ textAlign:"center", marginTop:"2.5rem" }}>
-          <Link to="/career-paths" className="btn btn-outline">Explore All 12 Career Paths →</Link>
+        {/* ── Step 2 — Interest ── */}
+        <div style={{ marginBottom:"4rem" }}>
+          <StepHeader num="2" accent="#FFB84D" title="Choose your interest"
+            sub="What genuinely draws you in — not what sounds impressive. Interest is what keeps you consistent." />
+
+          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(240px,1fr))", gap:"1rem" }}>
+            {interests.map((item) => (
+              <Link key={item.id} to="/career-paths" style={{ textDecoration:"none" }}>
+                <div style={{
+                  background:"#0C0A1E", border:"1px solid rgba(255,255,255,0.07)",
+                  borderRadius:"16px", padding:"1.75rem", cursor:"pointer", height:"100%",
+                  transition:"all 0.22s ease", position:"relative", overflow:"hidden",
+                }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.background="#131128";
+                    e.currentTarget.style.borderColor=`${item.accent}30`;
+                    e.currentTarget.style.transform="translateY(-2px)";
+                    e.currentTarget.style.boxShadow=`0 8px 28px ${item.accent}12`;
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.background="#0C0A1E";
+                    e.currentTarget.style.borderColor="rgba(255,255,255,0.07)";
+                    e.currentTarget.style.transform="none";
+                    e.currentTarget.style.boxShadow="none";
+                  }}
+                >
+                  {/* Glow dot */}
+                  <div style={{ position:"absolute", top:"16px", right:"16px", width:"6px", height:"6px",
+                    borderRadius:"50%", background:item.accent, opacity:0.55, boxShadow:`0 0 8px ${item.accent}` }}/>
+
+                  <div style={{ fontSize:"1.8rem", marginBottom:"1rem" }}>{item.icon}</div>
+                  <p className="font-display" style={{ color:"#F8F7FF", fontWeight:700, fontSize:"1.05rem", marginBottom:"0.5rem" }}>{item.title}</p>
+                  <p style={{ color:"var(--desc)", fontSize:"0.83rem", lineHeight:1.75, marginBottom:"1.1rem" }}>{item.desc}</p>
+
+                  {/* Suggested path chips */}
+                  <div style={{ display:"flex", flexWrap:"wrap", gap:"0.4rem" }}>
+                    {item.paths.map(p=>(
+                      <span key={p} style={{ fontSize:"0.7rem", fontWeight:500, padding:"0.25rem 0.65rem",
+                        borderRadius:"5px", background:`${item.accent}10`, border:`1px solid ${item.accent}22`, color:item.accent }}>
+                        {p}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
+
+        {/* ── Step 3 — Career direction ── */}
+        <div>
+          <StepHeader num="3" accent="#FF5E7E" title="Choose your career direction"
+            sub="12 career tracks, each mapped to real job roles and the skills employers actually look for." />
+
+          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(210px,1fr))", gap:"1rem" }}>
+            {careerPaths.map((p) => (
+              <Link key={p.id} to="/career-paths" style={{ textDecoration:"none" }}>
+                <div style={{
+                  background:"#0C0A1E", border:"1px solid rgba(255,255,255,0.07)",
+                  borderRadius:"14px", padding:"1.5rem 1.375rem", cursor:"pointer", height:"100%",
+                  transition:"all 0.22s", position:"relative", overflow:"hidden",
+                }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.borderColor=`${p.accent}35`;
+                    e.currentTarget.style.background="#131128";
+                    e.currentTarget.style.transform="translateY(-2px)";
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.borderColor="rgba(255,255,255,0.07)";
+                    e.currentTarget.style.background="#0C0A1E";
+                    e.currentTarget.style.transform="none";
+                  }}
+                >
+                  {/* Corner dot */}
+                  <div style={{ position:"absolute", top:"12px", right:"12px", width:"5px", height:"5px",
+                    borderRadius:"50%", background:p.accent, boxShadow:`0 0 6px ${p.accent}`, opacity:0.6 }}/>
+
+                  <div style={{ fontSize:"1.5rem", marginBottom:"0.85rem" }}>{p.icon}</div>
+                  <p className="font-display" style={{ color:"#F8F7FF", fontWeight:700, fontSize:"0.925rem", marginBottom:"0.5rem" }}>{p.title}</p>
+                  <p style={{ color:"var(--desc)", fontSize:"0.8rem", lineHeight:1.7, marginBottom:"0.9rem" }}>{p.desc}</p>
+                  <div style={{ display:"flex", flexWrap:"wrap", gap:"0.35rem" }}>
+                    {p.skills.slice(0,2).map(sk=>(
+                      <span key={sk} style={{ fontSize:"0.68rem", padding:"0.2rem 0.55rem",
+                        borderRadius:"4px", background:`${p.accent}10`, border:`1px solid ${p.accent}22`, color:p.accent }}>
+                        {sk}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div style={{ textAlign:"center", marginTop:"2.5rem" }}>
+            <Link to="/career-paths" className="btn btn-outline">Explore All 12 Career Paths →</Link>
+          </div>
+        </div>
+
       </div>
     </section>
   );
 }
 
 /* ─────────────────────────────────────────────────────────────
-   6 · POPULAR ROADMAPS
+   5 · POPULAR ROADMAPS
 ───────────────────────────────────────────────────────────── */
 function PopularRoadmaps() {
   return (
-    <section className="section" style={{ position:"relative", zIndex:1 }}>
+    <section className="section" style={{ position:"relative", zIndex:1, background:"rgba(12,10,30,0.5)" }}>
       <div className="line-t"/>
       <div className="container">
         <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-end", flexWrap:"wrap", gap:"1rem", marginBottom:"3rem" }}>
@@ -598,15 +568,15 @@ function PopularRoadmaps() {
                   {r.icon}
                 </div>
                 <div style={{ flex:1 }}>
-                  <p className="font-display" style={{ color:"#F8F7FF", fontWeight:700, fontSize:"0.925rem", marginBottom:"0.3rem" }}>{r.title}</p>
-                  <p style={{ color:"#3A3850", fontSize:"0.75rem", marginBottom:"0.65rem" }}>{r.stage}</p>
+                  <p className="font-display" style={{ color:"#F8F7FF", fontWeight:700, fontSize:"0.95rem", marginBottom:"0.35rem" }}>{r.title}</p>
+                  <p style={{ color:"var(--desc)", fontSize:"0.8rem", marginBottom:"0.7rem" }}>{r.stage}</p>
                   <div style={{ display:"flex", alignItems:"center", gap:"0.75rem" }}>
-                    <span style={{ fontSize:"0.68rem", color:r.accent, fontWeight:600,
+                    <span style={{ fontSize:"0.7rem", color:r.accent, fontWeight:600,
                       background:`${r.accent}10`, border:`1px solid ${r.accent}22`,
-                      borderRadius:"5px", padding:"0.15rem 0.5rem" }}>
+                      borderRadius:"5px", padding:"0.2rem 0.55rem" }}>
                       {r.weeks} weeks
                     </span>
-                    <span style={{ color:"#3A3850", fontSize:"0.68rem" }}>Structured · Free</span>
+                    <span style={{ color:"var(--t3)", fontSize:"0.72rem" }}>Structured · Free</span>
                   </div>
                 </div>
               </div>
@@ -619,11 +589,11 @@ function PopularRoadmaps() {
 }
 
 /* ─────────────────────────────────────────────────────────────
-   7 · WHAT EACH ROADMAP INCLUDES
+   6 · WHAT EACH ROADMAP INCLUDES
 ───────────────────────────────────────────────────────────── */
 function RoadmapIncludes() {
   return (
-    <section className="section" style={{ position:"relative", zIndex:1, background:"rgba(12,10,30,0.6)" }}>
+    <section className="section" style={{ position:"relative", zIndex:1 }}>
       <div className="line-r"/>
       <div className="container">
         <div className="grid-split-wide-r">
@@ -646,7 +616,7 @@ function RoadmapIncludes() {
             background:"rgba(255,255,255,0.05)", borderRadius:"16px", overflow:"hidden", border:"1px solid rgba(255,255,255,0.07)" }}>
             {roadmapIncludes.map((item) => (
               <div key={item.title} style={{
-                display:"flex", gap:"1rem", padding:"1.25rem 1.5rem",
+                display:"flex", gap:"1.1rem", padding:"1.375rem 1.5rem",
                 background:"#0C0A1E", alignItems:"flex-start", transition:"background 0.18s",
               }}
                 onMouseEnter={e => e.currentTarget.style.background="#131128"}
@@ -658,8 +628,8 @@ function RoadmapIncludes() {
                   {item.icon}
                 </div>
                 <div>
-                  <p className="font-display" style={{ color:"#F8F7FF", fontWeight:700, fontSize:"0.875rem", marginBottom:"0.25rem" }}>{item.title}</p>
-                  <p style={{ color:"#3A3850", fontSize:"0.78rem", lineHeight:1.65 }}>{item.desc}</p>
+                  <p className="font-display" style={{ color:"#F8F7FF", fontWeight:700, fontSize:"0.9rem", marginBottom:"0.3rem" }}>{item.title}</p>
+                  <p style={{ color:"var(--desc)", fontSize:"0.83rem", lineHeight:1.75 }}>{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -671,7 +641,7 @@ function RoadmapIncludes() {
 }
 
 /* ─────────────────────────────────────────────────────────────
-   8 · GROWTH PATH TIMELINE
+   7 · GROWTH PATH TIMELINE
 ───────────────────────────────────────────────────────────── */
 function GrowthPath() {
   const track = [
@@ -716,7 +686,7 @@ function GrowthPath() {
                   <span className="font-display" style={{ color:t.color, fontWeight:700, fontSize:"0.78rem" }}>{t.n}</span>
                 </div>
                 <p className="font-display" style={{ color:"#F8F7FF", fontWeight:700, fontSize:"0.95rem", marginBottom:"0.4rem", whiteSpace:"pre-line" }}>{t.title}</p>
-                <p style={{ color:"#3A3850", fontSize:"0.75rem", lineHeight:1.6 }}>{t.sub}</p>
+                <p style={{ color:"var(--desc)", fontSize:"0.8rem", lineHeight:1.7 }}>{t.sub}</p>
               </div>
             ))}
           </div>
@@ -734,7 +704,7 @@ function GrowthPath() {
                 </div>
                 <div>
                   <p className="font-display" style={{ color:"#F8F7FF", fontWeight:700, fontSize:"0.9rem", marginBottom:"0.3rem" }}>{t.title.replace("\n"," / ")}</p>
-                  <p style={{ color:"#3A3850", fontSize:"0.78rem", lineHeight:1.6 }}>{t.sub}</p>
+                  <p style={{ color:"var(--desc)", fontSize:"0.8rem", lineHeight:1.7 }}>{t.sub}</p>
                 </div>
               </div>
               {i < track.length-1 && (
@@ -754,7 +724,7 @@ function GrowthPath() {
 }
 
 /* ─────────────────────────────────────────────────────────────
-   9 · FINAL CTA
+   8 · FINAL CTA
 ───────────────────────────────────────────────────────────── */
 function FinalCTA() {
   return (
@@ -780,7 +750,7 @@ function FinalCTA() {
             maskImage:"radial-gradient(ellipse 55% 55% at 50% 50%,black 0%,transparent 100%)" }}/>
 
           <div style={{ position:"relative", zIndex:1 }}>
-            {/* Quote mark decoration */}
+            {/* Decoration */}
             <div style={{ fontSize:"2rem", marginBottom:"1rem" }}>🧭</div>
 
             <h2 className="font-display" style={{
@@ -793,7 +763,7 @@ function FinalCTA() {
               Start growing.
             </h2>
 
-            <p style={{ color:"#6B6882", fontSize:"1.05rem", maxWidth:"440px", margin:"0 auto 2.75rem", lineHeight:1.85 }}>
+            <p style={{ color:"var(--desc)", fontSize:"1.05rem", maxWidth:"440px", margin:"0 auto 2.75rem", lineHeight:1.85 }}>
               Stop wondering what to learn next. Start following a roadmap built for exactly where you are.
             </p>
 
@@ -802,11 +772,11 @@ function FinalCTA() {
                 Find My Path →
               </Link>
               <Link to="/roadmaps" className="btn btn-outline" style={{ fontSize:"1rem", padding:"0.9rem 2.25rem" }}>
-                Browse Roadmaps
+                Explore Roadmaps
               </Link>
             </div>
 
-            <p style={{ color:"#2A2840", fontSize:"0.72rem", marginTop:"2rem", letterSpacing:"0.06em", textTransform:"uppercase" }}>
+            <p style={{ color:"var(--t4)", fontSize:"0.72rem", marginTop:"2rem", letterSpacing:"0.06em", textTransform:"uppercase" }}>
               Free · No Login · No Paywall · Always Updated
             </p>
           </div>
@@ -825,10 +795,8 @@ export default function Home() {
       <PageBg/>
       <Hero/>
       <WhyKekaStore/>
-      <FounderStory/>
-      <StageSection/>
-      <InterestSection/>
-      <CareerPathsSection/>
+      <FounderNote/>
+      <FindMyPath/>
       <PopularRoadmaps/>
       <RoadmapIncludes/>
       <GrowthPath/>

@@ -1,53 +1,89 @@
 import { Link } from "react-router-dom";
 
 const COLS = [
-  { h:"Platform", links:[{l:"All Roadmaps",to:"/roadmaps"},{l:"Career Paths",to:"/career-paths"},{l:"Blog",to:"/blog"}]},
-  { h:"Company",  links:[{l:"About",to:"/about"},{l:"Contact",to:"/contact"}]},
-  { h:"Top Paths",links:[{l:"Frontend",to:"/career-paths"},{l:"Backend",to:"/career-paths"},{l:"AI Engineer",to:"/career-paths"},{l:"DevOps",to:"/career-paths"}]},
+  {
+    h:"Explore",
+    links:[
+      { l:"Find My Path",   to:"/career-paths" },
+      { l:"Roadmaps",       to:"/roadmaps" },
+      { l:"Career Paths",   to:"/career-paths" },
+      { l:"Projects",       to:"/roadmaps" },
+      { l:"Interview Prep", to:"/roadmaps" },
+    ],
+  },
+  {
+    h:"Resources",
+    links:[
+      { l:"Role Guidance", to:"/roadmaps" },
+      { l:"Certifications",to:"/roadmaps" },
+      { l:"Growth Path",   to:"/roadmaps" },
+      { l:"Blog",          to:"/blog" },
+    ],
+  },
+  {
+    h:"Company",
+    links:[
+      { l:"About",   to:"/about" },
+      { l:"Contact", to:"/contact" },
+    ],
+  },
 ];
 
 export default function Footer() {
   return (
-    <footer style={{ background:"#04040e", borderTop:"1px solid rgba(255,255,255,0.06)" }}>
-      <div className="container" style={{ padding:"4rem 1.5rem 2.5rem" }}>
-        <div style={{ display:"grid", gridTemplateColumns:"1.8fr repeat(3,1fr)", gap:"2.5rem", marginBottom:"3rem" }}>
+    <footer style={{ position:"relative", background:"#04040e", borderTop:"1px solid rgba(255,255,255,0.07)", overflow:"hidden" }}>
+      {/* Soft glow */}
+      <div style={{ position:"absolute", width:"500px", height:"300px", borderRadius:"50%",
+        top:"-150px", left:"50%", transform:"translateX(-50%)",
+        background:"radial-gradient(circle,rgba(0,229,176,0.05) 0%,transparent 70%)", pointerEvents:"none" }}/>
+
+      <div className="container" style={{ position:"relative", padding:"4rem 1.5rem 2.5rem" }}>
+        <div className="footer-grid" style={{ marginBottom:"3rem" }}>
+
+          {/* Brand */}
           <div>
             <Link to="/" style={{ textDecoration:"none", display:"inline-flex", alignItems:"center", gap:"9px", marginBottom:"1rem" }}>
-              <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+              <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
                 <rect width="28" height="28" rx="7" fill="url(#flg)"/>
                 <path d="M8 20 L14 8 L20 20" stroke="#070711" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
                 <circle cx="14" cy="20" r="2" fill="#070711"/>
                 <defs><linearGradient id="flg" x1="0" y1="0" x2="28" y2="28" gradientUnits="userSpaceOnUse"><stop stopColor="#00E5B0"/><stop offset="1" stopColor="#00a8cc"/></linearGradient></defs>
               </svg>
-              <span style={{ fontFamily:"Space Grotesk,sans-serif", fontWeight:700, color:"#F8F7FF", fontSize:"0.975rem" }}>
-                keka<span style={{color:"#00E5B0"}}>.store</span>
+              <span style={{ fontFamily:"Space Grotesk,sans-serif", fontWeight:700, color:"#F8F7FF", fontSize:"1.025rem" }}>
+                Keka<span style={{color:"#00E5B0"}}> Store</span>
               </span>
             </Link>
-            <p style={{ color:"#3D3B52", fontSize:"0.85rem", lineHeight:1.75, maxWidth:"220px" }}>
-              Clear career roadmaps for every tech stage — from fresher to tech lead.
+
+            <p style={{ color:"#00E5B0", fontSize:"0.825rem", fontWeight:600, marginBottom:"0.875rem", letterSpacing:"0.01em" }}>
+              A storehouse of tech career clarity.
             </p>
-            <p style={{ color:"#00E5B0", fontSize:"0.75rem", fontWeight:600, marginTop:"1.25rem", letterSpacing:"0.04em" }}>
-              FREE · NO LOGIN · ALWAYS UPDATED
+
+            <p style={{ color:"#8B88A6", fontSize:"0.875rem", lineHeight:1.8, maxWidth:"320px" }}>
+              Helping students, graduates, developers, and professionals choose the right tech path
+              with clear roadmaps, skills, projects, interviews, and growth guidance.
             </p>
           </div>
+
           {COLS.map(col => (
             <div key={col.h}>
               <p style={{ color:"#F8F7FF", fontWeight:600, fontSize:"0.75rem", letterSpacing:"0.08em", textTransform:"uppercase", marginBottom:"1.1rem" }}>{col.h}</p>
-              <ul style={{ listStyle:"none", display:"flex", flexDirection:"column", gap:"0.65rem" }}>
+              <ul style={{ listStyle:"none", display:"flex", flexDirection:"column", gap:"0.7rem" }}>
                 {col.links.map(({l,to}) => (
                   <li key={l}>
-                    <Link to={to} style={{ color:"#3D3B52", fontSize:"0.875rem", textDecoration:"none", transition:"color 0.18s" }}
+                    <Link to={to} style={{ color:"#8B88A6", fontSize:"0.875rem", textDecoration:"none", transition:"color 0.18s" }}
                       onMouseEnter={e=>e.target.style.color="#B8B6CC"}
-                      onMouseLeave={e=>e.target.style.color="#3D3B52"}>{l}</Link>
+                      onMouseLeave={e=>e.target.style.color="#8B88A6"}>{l}</Link>
                   </li>
                 ))}
               </ul>
             </div>
           ))}
         </div>
-        <div style={{ borderTop:"1px solid rgba(255,255,255,0.05)", paddingTop:"1.5rem", display:"flex", flexWrap:"wrap", justifyContent:"space-between", gap:"0.5rem" }}>
-          <p style={{ color:"#2a2840", fontSize:"0.78rem" }}>© 2025 keka.store · Built for builders.</p>
-          <p style={{ color:"#2a2840", fontSize:"0.78rem" }}>Free forever · No account required</p>
+
+        <div style={{ borderTop:"1px solid rgba(255,255,255,0.06)", paddingTop:"1.5rem", textAlign:"center" }}>
+          <p style={{ color:"#52506b", fontSize:"0.8rem", lineHeight:1.7 }}>
+            © 2026 Keka Store. Built to help tech learners find clarity and grow with confidence.
+          </p>
         </div>
       </div>
     </footer>

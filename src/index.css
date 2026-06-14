@@ -20,6 +20,7 @@
   --t2: #B8B6CC;
   --t3: #6B6882;
   --t4: #3A3850;
+  --desc: #9D9AB8;
 
   --border:  rgba(255,255,255,0.07);
   --border-t:rgba(0,229,176,0.18);
@@ -66,6 +67,19 @@ body{
 }
 @media(max-width:900px){
   .grid-split-wide,.grid-split-wide-r{grid-template-columns:1fr;gap:2.5rem}
+}
+
+/* ── FOOTER GRID ──────────────────────────────────────────── */
+.footer-grid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:2.5rem}
+@media(max-width:900px){
+  .footer-grid{grid-template-columns:1fr 1fr 1fr;gap:2rem}
+  .footer-grid>:first-child{grid-column:1 / -1}
+}
+@media(max-width:560px){
+  .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
+}
+@media(max-width:380px){
+  .footer-grid{grid-template-columns:1fr}
 }
 
 /* ── DIVIDER LINE ─────────────────────────────────────────── */

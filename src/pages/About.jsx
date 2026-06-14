@@ -29,6 +29,48 @@ export default function About() {
         </div>
       </section>
 
+      {/* Founder's Story */}
+      <section className="section" style={{ borderTop: "1px solid #1e293b" }}>
+        <div className="container" style={{ maxWidth: "760px" }}>
+          <span className="tag" style={{ marginBottom: "1rem", display: "inline-block" }}>Founder's Story</span>
+          <h2 className="section-title" style={{ marginBottom: "1.5rem" }}>Why I built Keka Store</h2>
+
+          <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem" }}>
+            <div style={{
+              width: "48px", height: "48px", borderRadius: "50%",
+              background: "linear-gradient(135deg,#3b82f6,#06b6d4)",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              fontWeight: 700, color: "#0a0e1a", fontFamily: "Space Grotesk, sans-serif", fontSize: "1.1rem", flexShrink: 0,
+            }}>K</div>
+            <div>
+              <p style={{ color: "#f1f5f9", fontWeight: 700, fontSize: "0.95rem" }}>Keka Store Founder</p>
+              <p style={{ color: "#64748b", fontSize: "0.8rem", marginTop: "2px" }}>Engineer · Educator · Builder</p>
+            </div>
+          </div>
+
+          <p style={{ color: "#94a3b8", lineHeight: 1.85, marginBottom: "1.25rem" }}>
+            After engineering, I — like thousands of graduates — had no idea what career paths existed in tech.
+            Nobody told me the difference between a frontend developer and a UI designer. Nobody explained
+            what a QA engineer does, or what a tech lead's day actually looks like.
+          </p>
+          <p style={{ color: "#94a3b8", lineHeight: 1.85, marginBottom: "1.25rem" }}>
+            I spent months figuring out things that should have been explained in a single conversation.
+            I wasted time on wrong paths. I built skills nobody needed at my level.
+          </p>
+          <p style={{ color: "#f1f5f9", lineHeight: 1.85, fontWeight: 500 }}>
+            Keka Store is the platform I wish had existed. A clarity engine for your tech career — not
+            a list of tutorials, but a real map from where you are to where you want to be.
+          </p>
+
+          <div style={{ marginTop: "1.75rem", paddingTop: "1.5rem", borderTop: "1px solid #1e293b",
+            display: "flex", gap: "1.5rem", flexWrap: "wrap" }}>
+            {["Frontend","Backend","AI","DevOps","Testing","Cloud","Product","Leadership"].map(tag=>(
+              <span key={tag} style={{ color: "#475569", fontSize: "0.78rem", fontWeight: 500 }}>{tag}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Mission */}
       <section className="section" style={{ borderTop: "1px solid #1e293b" }}>
         <div className="container">
