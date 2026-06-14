@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+/* ── TOKENS ───────────────────────────────────────────────── */
+:root {
+  --bg:        #070711;
+  --bg-2:      #0C0A1E;
+  --surface:   #131128;
+  --surface-2: #1A1730;
+
+  --teal:      #00E5B0;
+  --teal-dim:  rgba(0,229,176,0.1);
+  --teal-glow: rgba(0,229,176,0.18);
+  --amber:     #FFB84D;
+  --amber-dim: rgba(255,184,77,0.1);
+  --rose:      #FF5E7E;
+  --rose-dim:  rgba(255,94,126,0.1);
+
+  --t1: #F8F7FF;
+  --t2: #B8B6CC;
+  --t3: #6B6882;
+  --t4: #3A3850;
+
+  --border:  rgba(255,255,255,0.07);
+  --border-t:rgba(0,229,176,0.18);
+}
+
+/* ── RESET ────────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--t1);
+  font-family:'Inter',sans-serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* ── TYPOGRAPHY ───────────────────────────────────────────── */
+.font-display{font-family:'Space Grotesk',sans-serif}
+
+.g-teal{background:linear-gradient(135deg,#00E5B0,#00c4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.g-warm{background:linear-gradient(135deg,#FFB84D,#FF5E7E);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.g-full{background:linear-gradient(135deg,#00E5B0 0%,#00c4ff 45%,#FFB84D 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* ── LAYOUT ───────────────────────────────────────────────── */
+.container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+.section{padding:6rem 0}
+@media(max-width:768px){.section{padding:4rem 0}}
+
+/* ── DIVIDER LINE ─────────────────────────────────────────── */
+.line-t{position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,229,176,0.16),transparent)}
+.line-a{position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,184,77,0.14),transparent)}
+.line-r{position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,94,126,0.14),transparent)}
+
+/* ── BUTTONS ──────────────────────────────────────────────── */
+.btn{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  font-family:'Inter',sans-serif;font-weight:600;font-size:0.9375rem;
+  border-radius:10px;padding:0.8rem 1.75rem;
+  cursor:pointer;text-decoration:none;border:none;
+  transition:all 0.22s ease;white-space:nowrap;
+}
+.btn-teal{background:var(--teal);color:#070711}
+.btn-teal:hover{transform:translateY(-2px);box-shadow:0 8px 32px var(--teal-glow)}
+.btn-outline{background:transparent;color:var(--t2);border:1px solid var(--border)}
+.btn-outline:hover{border-color:var(--border-t);color:var(--teal);background:var(--teal-dim)}
+.btn-ghost{background:rgba(255,255,255,0.04);color:var(--t3);border:1px solid var(--border)}
+.btn-ghost:hover{background:rgba(255,255,255,0.07);color:var(--t2)}
+
+/* ── SECTION LABELS ───────────────────────────────────────── */
+.s-eyebrow{
+  font-size:0.7rem;font-weight:700;letter-spacing:0.13em;
+  text-transform:uppercase;color:var(--teal);
+  display:inline-flex;align-items:center;gap:0.5rem;
+  margin-bottom:1rem;
+}
+.s-eyebrow::before{content:'';display:block;width:16px;height:2px;background:var(--teal);border-radius:2px}
+.s-eyebrow-a{color:var(--amber)}
+.s-eyebrow-a::before{background:var(--amber)}
+.s-eyebrow-r{color:var(--rose)}
+.s-eyebrow-r::before{background:var(--rose)}
+
+/* ── HEADINGS ─────────────────────────────────────────────── */
+.s-heading{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(1.8rem,3vw,2.6rem);
+  font-weight:700;color:var(--t1);
+  line-height:1.18;letter-spacing:-0.025em;
+}
+.s-sub{color:var(--t3);font-size:1.05rem;line-height:1.78;margin-top:0.875rem}
+
+/* ── BADGE ────────────────────────────────────────────────── */
+.badge{
+  display:inline-flex;align-items:center;gap:0.4rem;
+  font-size:0.7rem;font-weight:700;letter-spacing:0.05em;
+  text-transform:uppercase;border-radius:999px;padding:0.35rem 0.9rem;
+}
+.badge-t{background:var(--teal-dim);color:var(--teal);border:1px solid var(--teal-glow)}
+.badge-a{background:var(--amber-dim);color:var(--amber);border:1px solid rgba(255,184,77,0.25)}
+.badge-r{background:var(--rose-dim);color:var(--rose);border:1px solid rgba(255,94,126,0.25)}
+
+/* ── HOVER CARDS ──────────────────────────────────────────── */
+.h-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:16px;
+  transition:transform 0.22s,border-color 0.22s,box-shadow 0.22s;
+}
+.h-card:hover{
+  transform:translateY(-3px);
+  border-color:var(--border-t);
+  box-shadow:0 12px 40px rgba(0,229,176,0.07);
+}
+
+/* ── CHIP ─────────────────────────────────────────────────── */
+.chip{
+  font-size:0.65rem;font-weight:500;padding:0.2rem 0.55rem;
+  border-radius:5px;background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);color:var(--t3);
+}
+
+/* ── SCROLLBAR ────────────────────────────────────────────── */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--surface-2);border-radius:3px}
