@@ -45,7 +45,28 @@ body{
 /* ── LAYOUT ───────────────────────────────────────────────── */
 .container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
 .section{padding:6rem 0}
-@media(max-width:768px){.section{padding:4rem 0}}
+@media(max-width:768px){.section{padding:3.5rem 0}}
+
+/* ── HERO ─────────────────────────────────────────────────── */
+.hero-section{
+  min-height:100vh;display:flex;align-items:center;
+  padding-top:88px;padding-bottom:4rem;position:relative;z-index:1;
+}
+@media(max-width:767px){
+  .hero-section{min-height:auto;padding-top:7rem;padding-bottom:3rem}
+}
+
+/* ── RESPONSIVE SPLIT GRIDS ───────────────────────────────── */
+.grid-split{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.grid-split-wide{display:grid;grid-template-columns:1fr 1.6fr;gap:5rem;align-items:center}
+.grid-split-wide-r{display:grid;grid-template-columns:1fr 1.5fr;gap:5rem;align-items:center}
+
+@media(max-width:767px){
+  .grid-split{grid-template-columns:1fr;gap:2.5rem}
+}
+@media(max-width:900px){
+  .grid-split-wide,.grid-split-wide-r{grid-template-columns:1fr;gap:2.5rem}
+}
 
 /* ── DIVIDER LINE ─────────────────────────────────────────── */
 .line-t{position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,229,176,0.16),transparent)}

@@ -157,9 +157,9 @@ function HeroVisual() {
 
 function Hero() {
   return (
-    <section style={{ minHeight:"100vh", display:"flex", alignItems:"center", paddingTop:"88px", paddingBottom:"4rem", position:"relative", zIndex:1 }}>
+    <section className="hero-section">
       <div className="container">
-        <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"4rem", alignItems:"center" }}>
+        <div className="grid-split">
 
           {/* ── Copy ── */}
           <div>
@@ -174,7 +174,7 @@ function Hero() {
             </div>
 
             <h1 className="font-display" style={{
-              fontSize:"clamp(2.5rem,5.5vw,4rem)",
+              fontSize:"clamp(2.4rem,5.5vw,4rem)",
               fontWeight:700, lineHeight:1.08, letterSpacing:"-0.03em",
               color:"#F8F7FF", marginBottom:"1.5rem",
             }}>
@@ -185,7 +185,7 @@ function Hero() {
 
             <p style={{ color:"#6B6882", fontSize:"1.05rem", lineHeight:1.85, maxWidth:"430px", marginBottom:"2.5rem" }}>
               Keka Store helps you discover your interests, choose the right technology path,
-              and follow a clear step-by-step roadmap — from student to senior engineer.
+              and follow a clear step-by-step roadmap — from student to senior engineer and beyond.
             </p>
 
             <div style={{ display:"flex", gap:"0.875rem", flexWrap:"wrap", marginBottom:"2.75rem" }}>
@@ -313,7 +313,7 @@ function FounderStory() {
     <section className="section" style={{ position:"relative", zIndex:1 }}>
       <div className="line-t"/>
       <div className="container">
-        <div style={{ display:"grid", gridTemplateColumns:"1fr 1.6fr", gap:"5rem", alignItems:"center" }}>
+        <div className="grid-split-wide">
 
           {/* Left — heading + accent */}
           <div>
@@ -513,7 +513,7 @@ function CareerPathsSection() {
           <span className="s-eyebrow s-eyebrow-a" style={{ justifyContent:"center" }}>Step 3</span>
           <h2 className="s-heading">Pick your direction</h2>
           <p className="s-sub" style={{ maxWidth:"500px", margin:"0.875rem auto 0" }}>
-            12 career tracks, each mapped to real job roles, real salaries, and real hiring expectations.
+            12 career tracks, each mapped to real job roles and the skills employers actually look for.
           </p>
         </div>
 
@@ -576,7 +576,7 @@ function PopularRoadmaps() {
           <div>
             <span className="s-eyebrow">Most Followed</span>
             <h2 className="s-heading">Popular roadmaps</h2>
-            <p className="s-sub" style={{ maxWidth:"440px" }}>Role-specific, week-by-week plans chosen by thousands of learners.</p>
+            <p className="s-sub" style={{ maxWidth:"440px" }}>Role-specific, week-by-week plans to help you get started with confidence.</p>
           </div>
           <Link to="/roadmaps" className="btn btn-outline" style={{ fontSize:"0.875rem" }}>All Roadmaps →</Link>
         </div>
@@ -626,7 +626,7 @@ function RoadmapIncludes() {
     <section className="section" style={{ position:"relative", zIndex:1, background:"rgba(12,10,30,0.6)" }}>
       <div className="line-r"/>
       <div className="container">
-        <div style={{ display:"grid", gridTemplateColumns:"1fr 1.5fr", gap:"5rem", alignItems:"center" }}>
+        <div className="grid-split-wide-r">
 
           {/* Left */}
           <div>
@@ -689,7 +689,7 @@ function GrowthPath() {
           <span className="s-eyebrow" style={{ justifyContent:"center" }}>The Growth Track</span>
           <h2 className="s-heading">Developer → Senior → Lead → Architect</h2>
           <p className="s-sub" style={{ maxWidth:"500px", margin:"0.875rem auto 0" }}>
-            Most platforms stop at the first job. Keka maps your entire career — every promotion, every transition, every level.
+            Most platforms stop at the first job. Keka Store maps your entire career — every promotion, every transition, every level.
           </p>
         </div>
 
