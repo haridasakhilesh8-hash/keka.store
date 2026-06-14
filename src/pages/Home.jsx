@@ -216,6 +216,96 @@ function Hero() {
 }
 
 /* ─────────────────────────────────────────────────────────────
+   1.5 · WHY KEKA STORE
+───────────────────────────────────────────────────────────── */
+const storeItems = [
+  { icon:"🗺️", title:"Career Roadmaps",        desc:"Step-by-step paths for every stage — from student to senior engineer.",     accent:"#00E5B0" },
+  { icon:"🧭", title:"Role Guidance",          desc:"Clear explanations of what each tech role actually does, day to day.",       accent:"#00c4ff" },
+  { icon:"🧠", title:"Skill Store",            desc:"The exact skills to learn, mapped to your stage and target role.",          accent:"#FFB84D" },
+  { icon:"🏗️", title:"Project Ideas",          desc:"Real portfolio projects that prove your skills to recruiters.",             accent:"#a78bfa" },
+  { icon:"📜", title:"Certification Guidance", desc:"Which certifications matter for your path, and which to skip.",             accent:"#FF5E7E" },
+  { icon:"📈", title:"Growth Paths",           desc:"What comes after this role — and how to get there with intent.",            accent:"#34d399" },
+];
+
+function WhyKekaStore() {
+  return (
+    <section className="section" style={{ position:"relative", zIndex:1 }}>
+      <div className="line-t"/>
+      <div className="container">
+
+        {/* Heading block */}
+        <div style={{ textAlign:"center", maxWidth:"680px", margin:"0 auto 1rem" }}>
+          <span className="s-eyebrow" style={{ justifyContent:"center" }}>The Name Behind The Mission</span>
+          <h2 className="s-heading">Why "Keka Store"?</h2>
+        </div>
+
+        {/* Main copy */}
+        <div style={{ maxWidth:"680px", margin:"0 auto 3.5rem", textAlign:"center" }}>
+          <p style={{ color:"#B8B6CC", fontSize:"1.05rem", lineHeight:1.9, marginBottom:"1.25rem" }}>
+            Keka Store is not a shopping store. It's a <span style={{ color:"#F8F7FF", fontWeight:600 }}>career guidance store</span> for
+            students, graduates, developers, career switchers, and future tech leaders. It brings roadmaps, roles, skills,
+            projects, certifications, interview preparation, and growth paths into one clear place.
+          </p>
+          <p style={{ color:"#6B6882", fontSize:"0.95rem", lineHeight:1.8, fontStyle:"italic" }}>
+            We call it a "store" because everything you need to understand, choose, and grow in a tech career
+            is stored here — with clarity.
+          </p>
+        </div>
+
+        {/* Connected map — center node radiating to 6 stored items */}
+        <div style={{ position:"relative" }}>
+
+          {/* Center node — desktop only, decorative */}
+          <div className="hidden md:block" style={{
+            position:"absolute", top:"-2.25rem", left:"50%", transform:"translateX(-50%)",
+            width:"52px", height:"52px", borderRadius:"50%", zIndex:2,
+            background:"#0C0A1E", border:"2px solid rgba(0,229,176,0.35)",
+            display:"flex", alignItems:"center", justifyContent:"center",
+            boxShadow:"0 0 28px rgba(0,229,176,0.18)",
+          }}>
+            <span style={{ fontSize:"1.35rem" }}>📦</span>
+          </div>
+
+          {/* Connector lines from center down to grid — decorative */}
+          <svg className="hidden md:block" style={{ position:"absolute", top:"-2.25rem", left:0, width:"100%", height:"60px", overflow:"visible", zIndex:1 }}>
+            <line x1="50%" y1="26" x2="16.6%" y2="60" stroke="rgba(0,229,176,0.14)" strokeWidth="1.5" strokeDasharray="4 4"/>
+            <line x1="50%" y1="26" x2="50%"   y2="60" stroke="rgba(0,229,176,0.14)" strokeWidth="1.5" strokeDasharray="4 4"/>
+            <line x1="50%" y1="26" x2="83.3%" y2="60" stroke="rgba(0,229,176,0.14)" strokeWidth="1.5" strokeDasharray="4 4"/>
+          </svg>
+
+          <div style={{
+            display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(220px,1fr))", gap:"1px",
+            background:"rgba(255,255,255,0.05)", borderRadius:"20px", overflow:"hidden",
+            border:"1px solid rgba(255,255,255,0.07)", paddingTop:"1.5rem",
+          }}>
+            {storeItems.map((item) => (
+              <div key={item.title}
+                style={{ padding:"1.625rem", background:"#0C0A1E", position:"relative", overflow:"hidden", transition:"background 0.2s", cursor:"default" }}
+                onMouseEnter={e => { e.currentTarget.style.background="#131128"; e.currentTarget.querySelector(".wi").style.transform="scale(1.15)"; }}
+                onMouseLeave={e => { e.currentTarget.style.background="#0C0A1E"; e.currentTarget.querySelector(".wi").style.transform="scale(1)"; }}
+              >
+                {/* Top accent line */}
+                <div style={{ position:"absolute", top:0, left:"1.625rem", right:"1.625rem", height:"2px",
+                  background:`linear-gradient(90deg,${item.accent},transparent)`, opacity:0.6 }}/>
+
+                {/* Node dot connecting to the "store" concept */}
+                <div style={{ position:"absolute", top:"1.625rem", right:"1.625rem", width:"6px", height:"6px",
+                  borderRadius:"50%", background:item.accent, boxShadow:`0 0 8px ${item.accent}`, opacity:0.55 }}/>
+
+                <span className="wi" style={{ fontSize:"1.6rem", display:"block", marginBottom:"0.875rem", transition:"transform 0.22s ease" }}>{item.icon}</span>
+                <p className="font-display" style={{ color:"#F8F7FF", fontWeight:700, fontSize:"0.925rem", marginBottom:"0.45rem" }}>{item.title}</p>
+                <p style={{ color:"#3A3850", fontSize:"0.8rem", lineHeight:1.65 }}>{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────
    2 · FOUNDER STORY
 ───────────────────────────────────────────────────────────── */
 function FounderStory() {
@@ -734,6 +824,7 @@ export default function Home() {
     <div style={{ position:"relative" }}>
       <PageBg/>
       <Hero/>
+      <WhyKekaStore/>
       <FounderStory/>
       <StageSection/>
       <InterestSection/>
