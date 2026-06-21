@@ -41,8 +41,8 @@ export default function HeroSection() {
             <Link to="/roadmaps" className="btn-primary" style={{ fontSize: "1rem" }}>
               Start Roadmap →
             </Link>
-            <Link to="/career-paths" className="btn-outline" style={{ fontSize: "1rem" }}>
-              Explore Career Paths
+            <Link to="/roadmaps" className="btn-outline" style={{ fontSize: "1rem" }}>
+              Explore Roadmaps
             </Link>
           </div>
 

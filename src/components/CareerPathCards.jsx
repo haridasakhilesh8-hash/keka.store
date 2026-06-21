@@ -3,7 +3,7 @@ import { careerPaths } from "../data";
 
 function PathCard({ path }) {
   return (
-    <Link to="/career-paths" style={{ textDecoration: "none" }}>
+    <Link to="/roadmaps" style={{ textDecoration: "none" }}>
       <div className="card" style={{ padding: "1.5rem", borderRadius: "12px", height: "100%", cursor: "pointer" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.9rem" }}>
           <div style={{
