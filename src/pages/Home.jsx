@@ -21,14 +21,14 @@ const WHO = [
 ];
 
 const DIRECTIONS = [
-  { icon:"🎨", label:"Frontend",          accent:"#FFB84D", to:"/roadmaps" },
-  { icon:"⚙️", label:"Backend",           accent:"#00E5B0", to:"/roadmaps" },
-  { icon:"🔗", label:"Full Stack",        accent:"#00c4ff", to:"/roadmaps" },
-  { icon:"☁️", label:"Cloud / DevOps",    accent:"#34d399", to:"/roadmaps" },
-  { icon:"🧠", label:"AI",                accent:"#a78bfa", to:"/roadmaps" },
-  { icon:"✅", label:"Testing",           accent:"#10b981", to:"/roadmaps" },
-  { icon:"📄", label:"CMS / Enterprise",  accent:"#c084fc", to:"/roadmaps" },
-  { icon:"🎯", label:"Leadership",        accent:"#FF5E7E", to:"/roadmaps" },
+  { icon:"🎨", label:"Frontend",          accent:"#FFB84D", to:"/roadmaps/frontend-developer"      },
+  { icon:"⚙️", label:"Backend",           accent:"#00E5B0", to:"/roadmaps/backend-developer"       },
+  { icon:"🔗", label:"Full Stack",        accent:"#00c4ff", to:"/roadmaps/full-stack-developer"    },
+  { icon:"☁️", label:"Cloud / DevOps",    accent:"#34d399", to:"/roadmaps/devops-engineer"         },
+  { icon:"🧠", label:"AI",                accent:"#a78bfa", to:"/roadmaps/ai-engineer"             },
+  { icon:"✅", label:"Testing",           accent:"#10b981", to:"/roadmaps/qa-automation-engineer"  },
+  { icon:"📄", label:"CMS / Enterprise",  accent:"#c084fc", to:"/roadmaps/technology/aem"          },
+  { icon:"🎯", label:"Leadership",        accent:"#FF5E7E", to:"/roadmaps/tech-lead"               },
 ];
 
 const STEPS = [
@@ -39,14 +39,14 @@ const STEPS = [
 ];
 
 const ROADMAPS = [
-  { id:"fresher-to-developer",   icon:"🌱", title:"Fresher to Software Developer", bestFor:"Students & Graduates", level:"Beginner",        growth:"→ Junior Developer",  accent:"#00E5B0" },
-  { id:"frontend-developer",     icon:"🎨", title:"Frontend Developer",            bestFor:"Freshers & Switchers",  level:"Beginner → Mid",  growth:"→ Senior → Lead",     accent:"#FFB84D" },
-  { id:"java-full-stack",        icon:"☕", title:"Java Full Stack Developer",     bestFor:"Freshers, Juniors",     level:"Beginner → Mid",  growth:"→ Senior → Architect",accent:"#FF5E7E" },
-  { id:"aem-cms-developer",      icon:"📄", title:"AEM / CMS Developer",          bestFor:"Mid-Level Java Devs",   level:"Mid → Senior",    growth:"→ Architect",         accent:"#a78bfa" },
-  { id:"qa-automation-engineer", icon:"✅", title:"QA to Automation Engineer",    bestFor:"Testers, Manual QA",    level:"Mid",             growth:"→ SDET → Arch",       accent:"#34d399" },
-  { id:"devops-engineer",        icon:"🔧", title:"DevOps Engineer",              bestFor:"Developers",            level:"Mid → Senior",    growth:"→ SRE → Platform Lead",accent:"#f59e0b" },
-  { id:"ai-engineer",            icon:"🧠", title:"AI Engineer",                  bestFor:"Developers, Data Fans", level:"Mid → Senior",    growth:"→ ML Lead → Architect",accent:"#c084fc" },
-  { id:"developer-to-tech-lead", icon:"🎯", title:"Developer to Tech Lead",       bestFor:"Senior Devs, 5+ yrs",   level:"Senior → Lead",   growth:"→ Architect → Manager",accent:"#60a5fa" },
+  { id:"fresher-to-developer",   to:"/roadmaps/fresher-to-software-developer", icon:"🌱", title:"Fresher to Software Developer", bestFor:"Students & Graduates", level:"Beginner",        growth:"→ Junior Developer",   accent:"#00E5B0" },
+  { id:"frontend-developer",     to:"/roadmaps/frontend-developer",            icon:"🎨", title:"Frontend Developer",            bestFor:"Freshers & Switchers",  level:"Beginner → Mid",  growth:"→ Senior → Lead",      accent:"#FFB84D" },
+  { id:"java-full-stack",        to:"/roadmaps/java-full-stack-developer",     icon:"☕", title:"Java Full Stack Developer",     bestFor:"Freshers, Juniors",     level:"Beginner → Mid",  growth:"→ Senior → Architect", accent:"#FF5E7E" },
+  { id:"aem-cms-developer",      to:"/roadmaps/technology/aem",                icon:"📄", title:"AEM / CMS Developer",          bestFor:"Mid-Level Java Devs",   level:"Mid → Senior",    growth:"→ Architect",          accent:"#a78bfa" },
+  { id:"qa-automation-engineer", to:"/roadmaps/qa-automation-engineer",        icon:"✅", title:"QA to Automation Engineer",    bestFor:"Testers, Manual QA",    level:"Mid",             growth:"→ SDET → Arch",        accent:"#34d399" },
+  { id:"devops-engineer",        to:"/roadmaps/devops-engineer",               icon:"🔧", title:"DevOps Engineer",              bestFor:"Developers",            level:"Mid → Senior",    growth:"→ SRE → Platform Lead", accent:"#f59e0b" },
+  { id:"ai-engineer",            to:"/roadmaps/ai-engineer",                   icon:"🧠", title:"AI Engineer",                  bestFor:"Developers, Data Fans", level:"Mid → Senior",    growth:"→ ML Lead → Architect", accent:"#c084fc" },
+  { id:"developer-to-tech-lead", to:"/roadmaps/tech-lead",                    icon:"🎯", title:"Developer to Tech Lead",       bestFor:"Senior Devs, 5+ yrs",   level:"Senior → Lead",   growth:"→ Architect → Manager", accent:"#60a5fa" },
 ];
 
 /* ════════════════════════════════════════════════════════════
@@ -306,7 +306,7 @@ function PopularRoadmaps() {
 
         <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(280px,1fr))", gap:"1rem" }}>
           {ROADMAPS.map(r => (
-            <Link key={r.id} to={`/roadmaps`} style={{ textDecoration:"none" }}>
+            <Link key={r.id} to={r.to} style={{ textDecoration:"none" }}>
               <div style={{
                 background:C.surface, border:`1px solid ${C.border}`, borderRadius:"16px",
                 padding:"1.5rem", cursor:"pointer", height:"100%", position:"relative", overflow:"hidden",

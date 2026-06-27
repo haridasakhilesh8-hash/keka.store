@@ -42,77 +42,80 @@ function LevelTabs({ levels, activeId, onChange, accent }) {
   );
 }
 
-/* ── Hero badges ─────────────────────────────────────────────── */
+/* ── Hero ────────────────────────────────────────────────────── */
 function HeroSection({ data, activeLevel }) {
   const acc = data.accent || C.teal;
   const levelRange = `${data.levels[0].label} → ${data.levels[data.levels.length - 1].label}`;
 
   const badges = [
-    { icon: "👤", label: "Best for",     value: data.bestFor  },
-    { icon: "📊", label: "Level",        value: levelRange    },
-    { icon: "🎯", label: "Current goal", value: activeLevel.goal },
+    { icon: "👤", label: "Best for",     value: data.bestFor      },
+    { icon: "📊", label: "Level",        value: levelRange        },
+    { icon: "🎯", label: "Current goal", value: activeLevel.goal  },
   ];
 
   return (
     <div style={{
       borderBottom: `1px solid ${C.border}`,
       background: C.bg2,
-      paddingTop: "5.5rem",
-      paddingBottom: "2.25rem",
+      paddingTop: "3.75rem",   /* 56px header + 4px gap */
+      paddingBottom: "1rem",
     }}>
       <div className="container">
+        {/* Breadcrumb */}
         <Link to="/roadmaps" style={{
-          display: "inline-flex", alignItems: "center", gap: "0.4rem",
-          color: C.muted, fontSize: "0.78rem", textDecoration: "none",
-          marginBottom: "1.25rem",
+          display: "inline-flex", alignItems: "center", gap: "0.35rem",
+          color: C.muted, fontSize: "0.75rem", textDecoration: "none",
+          marginBottom: "0.6rem",
         }}>← All roadmaps</Link>
 
-        <div style={{ display: "flex", alignItems: "center", gap: "0.65rem", marginBottom: "0.75rem", flexWrap: "wrap" }}>
-          {data.icon && <span style={{ fontSize: "1.4rem", lineHeight: 1 }}>{data.icon}</span>}
-          <span style={{
-            fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.1em",
-            textTransform: "uppercase", color: acc,
-          }}>
-            {data.typeLabel}
-          </span>
-        </div>
-
-        <h1 style={{
-          fontFamily: "Space Grotesk,sans-serif", fontWeight: 700,
-          fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)",
-          color: C.t1, lineHeight: 1.2, letterSpacing: "-0.025em",
-          marginBottom: "0.75rem",
-        }}>
-          {data.title}
-        </h1>
-
-        <p style={{ color: "#8B88A6", fontSize: "0.95rem", lineHeight: 1.75, maxWidth: "600px", marginBottom: "1.75rem" }}>
-          {data.subtitle}
-        </p>
-
+        {/* Title row + badges row — side by side on desktop */}
         <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-          gap: "0.6rem",
+          display: "flex", gap: "1.5rem",
+          alignItems: "center", flexWrap: "wrap",
         }}>
-          {badges.map(b => (
-            <div key={b.label} style={{
-              background: C.surface,
-              border: `1px solid ${C.border}`,
-              borderRadius: "12px",
-              padding: "0.875rem 1rem",
-              display: "flex", gap: "0.75rem", alignItems: "flex-start",
-            }}>
-              <span style={{ fontSize: "1rem", marginTop: "0.1rem", flexShrink: 0 }}>{b.icon}</span>
-              <div>
-                <p style={{
-                  fontSize: "0.63rem", fontWeight: 700, letterSpacing: "0.06em",
-                  textTransform: "uppercase", color: acc, marginBottom: "0.25rem",
-                }}>{b.label}</p>
-                <p style={{ color: C.t1, fontSize: "0.82rem", fontWeight: 500, lineHeight: 1.45 }}>{b.value}</p>
-              </div>
+          {/* Left: type label + title + subtitle */}
+          <div style={{ flex: "1 1 260px", minWidth: 0 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.3rem", flexWrap: "wrap" }}>
+              {data.icon && <span style={{ fontSize: "1.1rem", lineHeight: 1 }}>{data.icon}</span>}
+              <span style={{
+                fontSize: "0.63rem", fontWeight: 700, letterSpacing: "0.1em",
+                textTransform: "uppercase", color: acc,
+              }}>{data.typeLabel}</span>
             </div>
-          ))}
+
+            <h1 style={{
+              fontFamily: "Space Grotesk,sans-serif", fontWeight: 700,
+              fontSize: "clamp(1.35rem, 2.5vw, 1.9rem)",
+              color: C.t1, lineHeight: 1.15, letterSpacing: "-0.02em",
+              marginBottom: "0.35rem",
+            }}>{data.title}</h1>
+
+            <p style={{ color: "#8B88A6", fontSize: "0.85rem", lineHeight: 1.55, margin: 0 }}>
+              {data.subtitle}
+            </p>
+          </div>
+
+          {/* Right: three info badges */}
+          <div style={{
+            display: "flex", gap: "0.5rem", flexWrap: "wrap",
+            flex: "0 0 auto",
+          }}>
+            {badges.map(b => (
+              <div key={b.label} style={{
+                background: C.surface,
+                border: `1px solid ${C.border}`,
+                borderRadius: "10px",
+                padding: "0.6rem 0.875rem",
+                minWidth: "140px",
+              }}>
+                <p style={{
+                  fontSize: "0.6rem", fontWeight: 700, letterSpacing: "0.07em",
+                  textTransform: "uppercase", color: acc, marginBottom: "0.2rem",
+                }}>{b.label}</p>
+                <p style={{ color: C.t1, fontSize: "0.78rem", fontWeight: 500, lineHeight: 1.35 }}>{b.value}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -220,7 +223,7 @@ export default function KekaRoadmapLayout({ data }) {
     <div style={{ background: C.bg, minHeight: "100vh" }}>
       <HeroSection data={data} activeLevel={activeLevel} />
 
-      <div className="container" style={{ paddingTop: "2.5rem", paddingBottom: "5rem" }}>
+      <div className="container" style={{ paddingTop: "1.5rem", paddingBottom: "4rem" }}>
         <LevelTabs
           levels={data.levels}
           activeId={activeId}

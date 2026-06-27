@@ -57,37 +57,24 @@ export default function Header() {
         </Link>
 
         {/* Desktop nav */}
-        {isRoadmaps ? (
-          /* Minimal nav — Roadmaps page only */
-          <nav className="hidden md:flex" style={{ alignItems:"center" }}>
-            <span style={{
-              color:"#00E5B0", fontWeight:600, fontSize:"0.85rem",
-              padding:"0.3rem 0.75rem",
-              background:"rgba(0,229,176,0.08)",
-              borderRadius:"6px",
-              border:"1px solid rgba(0,229,176,0.18)",
-            }}>Roadmaps</span>
-          </nav>
-        ) : (
-          <nav className="hidden md:flex" style={{ alignItems:"center", gap:"1.75rem" }}>
-            {NAV.map(({ to, label }) => (
-              <NavLink key={to} to={to} end={to === "/"}
-                style={({ isActive }) => ({
-                  color: isActive ? "#00E5B0" : "#B8B6CC",
-                  fontWeight: isActive ? 600 : 400,
-                  fontSize: "0.875rem",
-                  textDecoration: "none",
-                  transition: "color 0.18s",
-                })}
-                onMouseEnter={e => { e.currentTarget.style.color = "#F8F7FF"; }}
-                onMouseLeave={e => { e.currentTarget.style.color = e.currentTarget.classList.contains("active") ? "#00E5B0" : "#B8B6CC"; }}
-              >{label}</NavLink>
-            ))}
-            <Link to="/roadmaps" className="btn btn-teal" style={{ fontSize:"0.85rem", padding:"0.55rem 1.25rem", borderRadius:"8px" }}>
-              Start Roadmap
-            </Link>
-          </nav>
-        )}
+        <nav className="hidden md:flex" style={{ alignItems:"center", gap:"1.75rem" }}>
+          {NAV.map(({ to, label }) => (
+            <NavLink key={to} to={to} end={to === "/"}
+              style={({ isActive }) => ({
+                color: isActive ? "#00E5B0" : "#B8B6CC",
+                fontWeight: isActive ? 600 : 400,
+                fontSize: "0.875rem",
+                textDecoration: "none",
+                transition: "color 0.18s",
+              })}
+              onMouseEnter={e => { e.currentTarget.style.color = "#F8F7FF"; }}
+              onMouseLeave={e => { e.currentTarget.style.color = e.currentTarget.classList.contains("active") ? "#00E5B0" : "#B8B6CC"; }}
+            >{label}</NavLink>
+          ))}
+          <Link to="/roadmaps" className="btn btn-teal" style={{ fontSize:"0.85rem", padding:"0.55rem 1.25rem", borderRadius:"8px" }}>
+            Start Roadmap
+          </Link>
+        </nav>
 
         {/* Mobile hamburger */}
         <button onClick={() => setOpen(!open)} className="md:hidden"
@@ -111,7 +98,7 @@ export default function Header() {
         borderBottom: open ? "1px solid rgba(255,255,255,0.07)" : "none",
       }}>
         <div className="container" style={{ paddingTop:"1rem", paddingBottom:"1.5rem", display:"flex", flexDirection:"column", gap:"2px" }}>
-          {(isRoadmaps ? [{ to:"/roadmaps", label:"Roadmaps" }] : NAV).map(({ to, label }) => (
+          {NAV.map(({ to, label }) => (
             <NavLink key={to} to={to} end={to==="/"} onClick={() => setOpen(false)}
               style={({ isActive }) => ({
                 color: isActive ? "#00E5B0" : "#B8B6CC",
@@ -120,12 +107,10 @@ export default function Header() {
                 padding:"0.7rem 0", borderBottom:"1px solid rgba(255,255,255,0.05)", display:"block",
               })}>{label}</NavLink>
           ))}
-          {!isRoadmaps && (
-            <Link to="/roadmaps" onClick={() => setOpen(false)} className="btn btn-teal"
-              style={{ marginTop:"1rem", justifyContent:"center", fontSize:"0.925rem" }}>
-              Start Roadmap
-            </Link>
-          )}
+          <Link to="/roadmaps" onClick={() => setOpen(false)} className="btn btn-teal"
+            style={{ marginTop:"1rem", justifyContent:"center", fontSize:"0.925rem" }}>
+            Start Roadmap
+          </Link>
         </div>
       </div>
     </header>
