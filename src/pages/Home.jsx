@@ -10,14 +10,14 @@ const C = {
 
 /* ── data ─────────────────────────────────────────────────── */
 const WHO = [
-  { icon:"🎓", label:"Student",            sub:"Choosing a tech career direction",  accent:"#00E5B0" },
-  { icon:"🌱", label:"Graduate / Fresher", sub:"Landing your first developer role", accent:"#00c4ff" },
-  { icon:"💻", label:"Junior Developer",   sub:"Growing from 0–2 years",            accent:"#60a5fa" },
-  { icon:"✅", label:"Tester / QA",        sub:"Moving into automation & quality",   accent:"#34d399" },
-  { icon:"⚡", label:"Working Developer",  sub:"Levelling up at 3–5 years",         accent:"#FFB84D" },
-  { icon:"🏆", label:"Senior Developer",   sub:"Moving toward leadership",           accent:"#a78bfa" },
-  { icon:"🎯", label:"Tech Lead",          sub:"Architecture & people leadership",   accent:"#FF5E7E" },
-  { icon:"🔄", label:"Career Switcher",    sub:"Entering tech from another field",   accent:"#f59e0b" },
+  { icon:"🎓", label:"Student",            sub:"Choosing a tech career direction",  accent:"#00E5B0", slug:"student" },
+  { icon:"🌱", label:"Graduate / Fresher", sub:"Landing your first developer role", accent:"#00c4ff", slug:"graduate-fresher" },
+  { icon:"💻", label:"Junior Developer",   sub:"Growing from 0–2 years",            accent:"#60a5fa", slug:"junior-developer" },
+  { icon:"✅", label:"Tester / QA",        sub:"Moving into automation & quality",   accent:"#34d399", slug:"tester-qa" },
+  { icon:"⚡", label:"Working Developer",  sub:"Levelling up at 3–5 years",         accent:"#FFB84D", slug:"working-developer" },
+  { icon:"🏆", label:"Senior Developer",   sub:"Moving toward leadership",           accent:"#a78bfa", slug:"senior-developer" },
+  { icon:"🎯", label:"Tech Lead",          sub:"Architecture & people leadership",   accent:"#FF5E7E", slug:"tech-lead" },
+  { icon:"🔄", label:"Career Switcher",    sub:"Entering tech from another field",   accent:"#f59e0b", slug:"career-switcher" },
 ];
 
 const DIRECTIONS = [
@@ -141,7 +141,7 @@ function WhoAreYou() {
 
         <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(220px,1fr))", gap:"0.875rem" }}>
           {WHO.map(w => (
-            <Link key={w.label} to="/roadmaps" style={{ textDecoration:"none" }}>
+            <Link key={w.label} to={`/roadmaps/stage/${w.slug}`} style={{ textDecoration:"none" }}>
               <div style={{
                 background:C.surface, border:`1px solid ${C.border}`, borderRadius:"14px",
                 padding:"1.375rem 1.25rem", cursor:"pointer",
